@@ -1,0 +1,70 @@
+<config xmlns="http://marklogic.com/roxy/cpf">
+  <domains>
+    <!-- one <domain> for each cpf domain -->
+    <domain>
+      <name>Field Intell Document Ingestion Processing</name>
+      <description>Documents for processing and alerting</description>
+      <system-pipelines>
+        <system-pipeline>Status Change Handling</system-pipeline>
+        <system-pipeline>Alerting</system-pipeline>        
+        <system-pipeline>WordprocessingML Process</system-pipeline>        
+        <system-pipeline>Office OpenXML Extract</system-pipeline>        
+        <system-pipeline>MS Office Conversion</system-pipeline>        
+        <system-pipeline>PDF Conversion</system-pipeline>        
+        <system-pipeline>Conversion Processing</system-pipeline>        
+        <system-pipeline>HTML Conversion</system-pipeline>        
+        <system-pipeline>Conversion Processing (Basic)</system-pipeline>        
+        <system-pipeline>PDF Conversion (Image Batching)</system-pipeline>        
+        <system-pipeline>PDF Conversion (Page Layout)</system-pipeline>        
+        <system-pipeline>XHTML Conversion Processing</system-pipeline>        
+        <system-pipeline>PDF Conversion (Page Layout, Image Batching)</system-pipeline>        
+        <system-pipeline>PDF Conversion (Page Layout with Reblocking)</system-pipeline>        
+        <system-pipeline>PDF Conversion (Paged Text, No Rendering)</system-pipeline>        
+        <system-pipeline>Entity Enrichment</system-pipeline>        
+      </system-pipelines>
+      <scope>
+        <type>directory</type>
+        <uri>/</uri>
+        <depth>infinity</depth>
+      </scope>
+     <context>
+        <modules-database>@ml.modules-db</modules-database>
+        <root>/</root>
+      </context>
+<!--
+
+      <pipelines>
+        
+        <pipeline>/locaton/to/your/pipeline.xml</pipeline>
+      </pipelines>
+
+      3 types of scopes exist: Make sure you use one
+
+      <scope>
+        <type>directory</type>
+        <uri>/</uri>
+        <depth>infinity</depth>
+      </scope>
+      <scope>
+        <type>collection</type>
+        <uri>MyCollection</uri>
+        <depth/>
+      </scope>
+      <scope>
+        <type>document</type>
+        <uri>/stuff.xml</uri>
+        <depth/>
+      </scope>
+-->
+ 
+      <restart-user>@ml.app-name-user</restart-user>
+      <!-- Permissions are optional -->
+      <permissions>
+        <permission>
+          <capability>execute</capability>
+          <role-name>@ml.app-role</role-name>
+        </permission>
+      </permissions>
+    </domain>
+  </domains>
+</config>
